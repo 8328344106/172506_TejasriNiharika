@@ -1,0 +1,90 @@
+package abcd.com;
+
+public class Author 
+{
+	static String name;
+	static String email;
+	static char gender;
+	public Author(String name, String email, char gender) 
+	{
+		super();
+		this.name = name;
+		this.email = email;
+		this.gender = gender;
+	}
+	public String getEmail() 
+	{
+		return email;
+	}
+	public void setEmail(String email) 
+	{
+		this.email = email;
+	}
+	public String getName() 
+	{
+		return name;
+	}
+	public char getGender() 
+	{
+		return gender;
+	}
+	@Override
+	public String toString()
+	{
+		return "Author [name= " + name + "email=" + email + "Gender= " + gender + "]";
+	}
+	
+}
+package abcd.com;
+
+public class Book extends Author
+{
+	String bname;
+	double price;
+	int qty=0;
+	public Book(String bname) 
+	{
+		super(name, email, gender);
+	}
+	public double getPrice() 
+	{
+		return price;
+	}
+	public void setPrice(double price) 
+	{
+		this.price = price;
+	}
+	public int getQty() 
+	{
+		return qty;
+	}
+	public void setQty(int qty) 
+	{
+		this.qty = qty;
+	}
+	public String getBname() 
+	{
+		return bname;
+	}
+	@Override
+	public String toString()
+	{
+		return "Book[name= " + bname + ",Author [name= " + name + ",email= " + email + ",Gender= " + gender + 
+				"] , price= " +price + ",qty= " + qty + "]";
+	}
+	
+	
+}
+package abcd.com;
+
+public class Author2 
+{
+	public static void main(String[] args)
+	{
+		Author a=new Author("fhsh","nihaika@gmail.com",'F');
+		Book b=new Book("hsasgd");
+		b.setPrice(800);
+		b.setQty(20);
+		System.out.println(b);
+	}
+}

@@ -1,0 +1,98 @@
+package cus.com;
+
+public class Customer 
+{
+	static int id;
+	static String name;
+	static char gender;
+	static int discount;
+	public Customer(int id, String name, int discount) 
+	{
+		super();
+		this.id = id;
+		this.name = name;
+		this.discount=discount;
+	}
+	public int getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public char getGender() {
+		return gender;
+	}
+	@Override
+	public String toString()
+	{
+		return name + "( " + id + ")";
+	}
+	
+	
+}
+package cus.com;
+import java.lang.Math;
+public class Account extends Customer
+{
+	int aid;
+	double balance=0.0;
+	public Account( ) 
+	{
+		super(id, name, gender);
+		this.balance=balance;
+	}
+	public double getBalance() 
+	{
+		return balance;
+	}
+	public void setBalance(double balance) 
+	{
+		this.balance = balance;
+	}
+	public int getAid() 
+	{
+		return aid;
+	}
+	public void credit(double amount)
+	{
+		balance = balance+amount;
+		System.out.println("After credit:");
+	}
+	public void withdraw(double amount)
+	{
+		if(balance>=amount)
+		{
+			balance=balance-amount;
+			System.out.println("After withdraw:");
+		}
+		else
+		{
+			System.out.println("amount withdrawn exceeds the current balance!");
+		}
+	}
+	@Override
+	public String toString()
+	{
+		return String.format("%.2f", balance);
+	}
+	
+	
+}
+package cus.com;
+
+public class Account2 {
+
+	public static void main(String[] args) 
+	{
+		Customer c=new Customer(1,"niha",20);
+		System.out.println(c);
+		Account a=new Account();
+		a.setBalance(890.367788);
+		a.credit(2000.3789);
+		System.out.println(a);
+		a.withdraw(899.2898);
+		System.out.println(a);
+
+	}
+
+}
