@@ -1,0 +1,88 @@
+package abc.com;
+
+//import java.util.Scanner;
+
+public class account 
+{
+	String id;
+	String name;
+	int balance=0;
+	public account(String id,String name,int balance)
+	{
+		this.id = id;
+		this.name = name;
+		this.balance = balance;
+	}
+	public String getID() //Getting ID
+	{
+	  return id;
+	}
+	public String getName() //Getting Name
+	{
+	  return name;
+	}
+	public int getBalance()//Getting Balance
+	{
+	  return balance;
+	}
+	@Override
+	public String toString() {
+		return "id=" + id  + ", name=" + name + ", balance=" + balance ;
+	}
+	int credit(int a1)
+	{
+		balance = balance + a1;
+		System.out.println("after credited:" + balance);
+		return balance;
+		
+	}
+	int debit(int a2)
+	{
+		if(a2 <= balance)
+		{
+			balance = balance - a2;
+			System.out.println("after debited:" + balance);
+		}
+		else
+		{
+			System.out.println("Amount exceeded balance");
+		}
+		return balance;
+	}
+	int transfer(int a3)
+	{
+		if(a3 <= balance)
+		{
+			balance = balance - a3;
+			System.out.println("after transfer:" + balance);
+		}
+		else
+		{
+			System.out.println("Amount exceeded balance");
+		}
+		return balance;
+	}
+	
+
+}
+package abc.com;
+
+//import java.util.Scanner;
+
+public class account2 
+{
+		
+		public static void main(String[] args) 
+		{
+			// TODO Auto-generated method stub
+			//Scanner t = new Scanner(System.in);
+			account ac=new account("1","Niha",9000);
+			ac.credit(3000);
+			ac.debit(2000);
+			ac.transfer(3000);
+			
+			System.out.println(ac);
+		}
+
+	}
+
