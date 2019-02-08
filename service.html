@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+.services{
+	background: url(../images/banner4.jpg) no-repeat center fixed;
+	background-size:cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	-ms-background-size: cover;
+	-moz-background-size: cover; 
+}
+h3.w3ls-tittle,h2.w3ls-tittle{
+	font-family: 'Niconne', cursive;
+	text-align:center;
+	font-size:52px;
+	color:#ff322e;
+	margin-bottom: 50px;
+}
+h3.w3ls-tittle.t-team{
+	color:#fff;
+}
+h3.w3ls-tittle:after, h3.w3ls-tittle:before {
+    width: 120px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background: #000;
+    margin: 0 2%;
+}
+h2.w3ls-tittle:after, h2.w3ls-tittle:before {
+    width: 120px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    background: #fff;
+    margin: 0 2%;
+}
+.ser-agiletop{
+	width: 80%;
+	float:right;
+}
+.ser-agiletop h4{
+	font-size: 28px;
+	color:#00bce4;
+	font-weight:600;
+}
+.ser-agiletop p{
+    color: #fff;
+    font-size: 14px;
+    line-height: 2em;
+    margin: 25px 0 0 0;
+}
+.serw3agile-grid{
+	float:left;
+}
+.services-left:nth-child(3),.services-left:nth-child(4) {
+    margin-top: 50px;
+}
+.hi-icon {
+	display: inline-block; 
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    border: 3px solid #ff322e;
+    line-height: 4.5em;
+}
+.hi-icon:after {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	content: '';
+	-webkit-box-sizing: content-box; 
+	-moz-box-sizing: content-box; 
+	box-sizing: content-box;
+}
+.hi-icon:before {
+	font-size: 25px;
+	display: block;
+}
+/* Effect 8 */
+.serw3agile-grid .hi-icon {
+	background: rgba(255,255,255,0.1);
+	-webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
+	-moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
+	transition: transform ease-out 0.1s, background 0.2s;
+}
+.serw3agile-grid .hi-icon:after {
+	top: 0;
+	left: 0;
+	padding: 0;
+	z-index: -1;
+	box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+	opacity: 0;
+	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(0.9);
+}
+.services-left:hover.serw3agile-grid .hi-icon{
+	background: rgba(255,255,255,0.05);
+	-webkit-transform: scale(0.93);
+	-moz-transform: scale(0.93);
+	-ms-transform: scale(0.93);
+	transform: scale(0.93);
+	color:#8e8e8e;
+	text-decoration: none;
+}
+.services-left:hover .serw3agile-grid .hi-icon:after {
+	-webkit-animation: sonarEffect 1.3s ease-out 75ms;
+	-moz-animation: sonarEffect 1.3s ease-out 75ms;
+	animation: sonarEffect 1.3s ease-out 75ms;
+}
+@-webkit-keyframes sonarEffect {
+	0% {
+		opacity: 0.3;
+	}
+	40% {
+		opacity: 0.5;
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #8e8e8e, 0 0 0 10px rgba(255,255,255,0.5);
+	}
+	100% {
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #8e8e8e, 0 0 0 10px rgba(255,255,255,0.5);
+		-webkit-transform: scale(1.5);
+		opacity: 0;
+	}
+}
+@-moz-keyframes sonarEffect {
+	0% {
+		opacity: 0.3;
+	}
+	40% {
+		opacity: 0.5;
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #8e8e8e, 0 0 0 10px rgba(255,255,255,0.5);
+	}
+	100% {
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #8e8e8e, 0 0 0 10px rgba(255,255,255,0.5);
+		-moz-transform: scale(1.5);
+		opacity: 0;
+	}
+}
+@keyframes sonarEffect {
+	0% {
+		opacity: 0.3;
+	}
+	40% {
+		opacity: 0.5;
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #8e8e8e, 0 0 0 10px rgba(255,255,255,0.5);
+	}
+	100% {
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #8e8e8e, 0 0 0 10px rgba(255,255,255,0.5);
+		transform: scale(1.5);
+		opacity: 0;
+	}
+}
+
+</style>
+<body style="background-image:url('g3.jpg');">
+<!-- services -->
+	<div id="services" class="services">
+		<div class="container">
+			<h2 class="w3ls-tittle">Services</h2>
+			<div class="services-grids w3layouts-grids">
+				<div class="col-md-6 services-left">
+					<div class="serw3agile-grid">	
+						<span class="hi-icon hi-icon-archive glyphicon glyphicon-check"> </span>
+					</div>
+					<div  class="ser-agiletop">
+						<h4>Best Quality</h4>
+						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. 
+							It has roots in a piece of classical.Contrary to popular belief, Lorem Ipsum </p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 services-left">
+					<div class="serw3agile-grid">	
+						<span class="hi-icon hi-icon-archive glyphicon glyphicon-music"> </span>
+					</div>
+					<div  class="ser-agiletop">
+						<h4>Rocking Music</h4>
+						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. 
+							It has roots in a piece of classical.Contrary to popular belief, Lorem Ipsum </p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 services-left">
+					<div class="serw3agile-grid">	
+						<span class="hi-icon hi-icon-archive glyphicon glyphicon-picture"> </span>
+					</div>
+					<div  class="ser-agiletop">
+						<h4>Amazing Themes</h4>
+						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. 
+							It has roots in a piece of classical.Contrary to popular belief, Lorem Ipsum </p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 services-left">
+					<div class="serw3agile-grid">	
+						<span class="hi-icon hi-icon-archive glyphicon glyphicon-heart-empty"> </span>
+					</div>
+					<div  class="ser-agiletop">
+						<h4>Latest Collections</h4>
+						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. 
+							It has roots in a piece of classical.Contrary to popular belief, Lorem Ipsum </p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!-- //services -->
+	</body>
+	</html>
