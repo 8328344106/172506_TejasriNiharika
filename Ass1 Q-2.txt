@@ -1,0 +1,84 @@
+package ab.com;
+
+public class student 
+{
+	private String name;
+	private String address;
+	private int numcourse=0;
+	private String[] course;
+	private int[] grade;
+	public student(String name,String address)
+	{
+		this.name=name;
+		this.address=address;
+		course=new String[30];
+		grade =new int[30];
+		numcourse=0;
+		
+	}
+	public String getName() //Getting Name
+	{
+	  return name;
+	}
+	public String getAddress()//Getting Address
+	{
+	  return address;
+	}
+	public void setAddress()
+	{
+		this.address=address;
+	}
+	@Override
+	public String toString()
+	{
+		return name + "( " + address +" )"; 
+	}
+	public void addcoursegrade(String course,int grade)
+	{
+		if(numcourse<30)
+		{
+		this.course[numcourse]=course;
+		this.grade[numcourse]=grade;
+		numcourse++;
+		}
+		else
+		{
+			System.out.println("courses upto 30 only");
+		}
+	}
+	public void printgrades()
+	{
+		for(int i=0;i<numcourse;i++)
+		{
+			System.out.println(course[i] + ":" + grade[i]);
+		}
+	}
+	public void getAveragegrade()
+	{
+		int sum=0;
+		for(int i=0;i<numcourse;i++)
+		{
+			sum=sum+grade[i];
+		}
+		System.out.println("Average grade:" + sum/numcourse);
+	}
+
+}
+package ab.com;
+
+public class average 
+{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		student stu=new student("Niha","Bangalore");
+		System.out.println(stu);
+		stu.addcoursegrade("java", 75);
+		stu.addcoursegrade("c", 80);
+		stu.addcoursegrade("sql", 90);
+		stu.addcoursegrade("cloud", 70);
+		stu.printgrades();
+		stu.getAveragegrade();
+	}
+
+}
