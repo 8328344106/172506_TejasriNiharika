@@ -1,0 +1,164 @@
+package dis.com;
+
+public class customer 
+{
+	static String name;
+	boolean member=false;
+	String membertype;
+	customer(String name)
+	{
+		this.name=name;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public boolean ismember()
+	{
+		return member;
+	}
+	public void setmember(boolean member)
+	{
+		this.member=member;
+	}
+	public String getmembertype()
+	{
+		return membertype;
+	}
+	public void setmembertype(String membertype)
+	{
+		this.membertype=membertype;
+	}
+	@Override
+	public String toString()
+	{
+		return "customer name: "+ name + " membertype: " + membertype;
+	}
+	
+	
+}
+package dis.com;
+import java.util.Date;
+
+public class visit extends customer
+{
+	Date date;
+	static double serviceexpense;
+	static double productexpense;
+	public visit()
+	{
+		super(name);
+		this.name=name;
+	}
+	public String getname()
+	{
+		return name;
+	}
+	public double getserviceexpense()
+	{
+		return serviceexpense;
+	}
+	public void setserviceexpense(double serviceexpense)
+	{
+		this.serviceexpense=serviceexpense;
+		
+	}
+	public double getproductexpense()
+	{
+		return productexpense;
+	}
+	public void setproductexpense(double productexpense)
+	{
+		this.productexpense=productexpense;
+		
+	}
+	public double gettotalexpense(double totalexpense)
+	{
+		//totalexpense=serviceexpense+productexpense;
+		return totalexpense;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "Total expense:" + (serviceexpense+productexpense);
+	}
+
+}
+package dis.com;
+
+public class discountrate extends visit
+{
+	static double spremium=0.2;
+	static double sgold=0.15;
+	static double ssilver=0.1;
+	static double ppremium=0.1;
+	static double pgold=0.1;
+	static double psilver=0.1;
+	//customer c=new customer();
+	
+	static double getservicediscountrate(String membertype)
+	{
+		if(membertype=="premium")
+		{
+			return (serviceexpense-(serviceexpense*spremium));
+		}
+		else if (membertype=="gold")
+		{
+			return (serviceexpense-(serviceexpense*sgold));
+		}
+		else if (membertype=="silver")
+		{
+			return (serviceexpense-(serviceexpense*ssilver));
+		}
+		else
+		{
+			return serviceexpense;
+		}
+	}
+	static double getproductdiscountrate(String membertype)
+	{
+		if(membertype=="premium")
+		{
+			return (productexpense-(productexpense*ppremium));
+		}
+		else if (membertype=="gold")
+		{
+			return (productexpense-(productexpense*pgold));
+		}
+		else if (membertype=="silver")
+		{
+			return (productexpense-(productexpense*psilver));
+		}
+		else
+		{
+			return (serviceexpense-(serviceexpense*0.1));
+		}
+	}
+
+}
+package dis.com;
+
+public class discount2 
+{
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		customer c=new customer("Niha");
+		c.setmembertype("gold");
+		c.setmember(true);
+		System.out.println(c);
+		visit v=new visit();
+		v.setserviceexpense(900);
+		v.setproductexpense(800);
+		System.out.println(v);
+		discountrate d=new discountrate();
+		System.out.println(d.getservicediscountrate(c.getmembertype()));
+		System.out.println(d.getproductdiscountrate(c.getmembertype()));
+				
+	}
+
+}
+
+
