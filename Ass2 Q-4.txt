@@ -1,0 +1,183 @@
+package sch.com;
+
+public class Person
+{
+	static String name;
+	static String address;
+	public Person(String name, String address) 
+	{
+		super();
+		this.name = name;
+		this.address = address;
+	}
+	public String getAddress() 
+	{
+		return address;
+	}
+	public void setAddress(String address) 
+	{
+		this.address = address;
+	}
+	public String getName() 
+	{
+		return name;
+	}
+	@Override
+	public String toString()
+	{
+		return name + "(" + address + ")";
+	}
+	
+	
+}
+package sch.com;
+
+public class Person
+{
+	static String name;
+	static String address;
+	public Person(String name, String address) 
+	{
+		super();
+		this.name = name;
+		this.address = address;
+	}
+	public String getAddress() 
+	{
+		return address;
+	}
+	public void setAddress(String address) 
+	{
+		this.address = address;
+	}
+	public String getName() 
+	{
+		return name;
+	}
+	@Override
+	public String toString()
+	{
+		return name + "(" + address + ")";
+	}
+	
+	
+}
+package sch.com;
+
+public class Student extends Person
+{
+	int numcourse=0;
+	static String[] courses;
+	static int[] grades;
+	
+	public Student() 
+	{
+		super(name, address);
+		courses=new String[30];
+		grades =new int[30];
+		// TODO Auto-generated constructor stub
+	}
+	public void addcoursesgrade(String courses,int grades)
+	{
+		this.courses[numcourse]=courses;
+		this.grades[numcourse] = grades;
+		numcourse++;
+	}
+	public void printgrades()
+	{
+		for(int i=0;i<numcourse;i++)
+		{
+			System.out.println(courses[i] + ":" + grades[i]);
+		}
+	}
+	public void getaveragegrade()
+	{
+		double sum=0;
+		for(int i=0;i<numcourse;i++)
+		{
+			sum=sum+grades[i];
+		}
+		System.out.println("Average grade:" + sum/numcourse);
+	}
+	@Override
+	public String toString()
+	{
+		return "Student:"+ name +"("+address+")";
+	}
+}
+package sch.com;
+
+public class Teacher extends Person
+{
+	
+	int numcourse=0;
+	String[] course;
+	Student s=new Student();
+	public Teacher(String name, String address) 
+	{
+		super(name, address);
+		//course=new String[80];
+		// TODO Auto-generated constructor stub
+	}
+	public boolean addcourse(String course)
+	{
+		//return (s.addcourse(course));
+		for(int i=0;i<numcourse;i++)
+		{
+			if(s.courses[i].equals(course))
+			{
+				return false;
+			}
+				
+		}
+		return true;
+	}
+	public boolean removecourse(String course)
+	{
+		for(int i=0;i<numcourse;i++)
+		{
+			if(s.courses[i].equals(course))
+			{
+				return true;
+			}
+				
+		}
+		return false;
+	}
+	@Override
+	public String toString()
+	{
+		return "Teacher=" + name + "(" + address + ")";
+	}
+	
+}
+package sch.com;
+
+public class stu {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Person p=new Person("Niha","Bangalore");
+		System.out.println(p);
+		Student s=new Student();
+		System.out.println(s);
+		Teacher t=new Teacher("sasi","bangalore");
+		System.out.println(t);
+		s.addcoursesgrade("java", 75);
+		s.addcoursesgrade("oops", 75);
+		s.addcoursesgrade("c", 90);
+		s.addcoursesgrade("Sql", 85);
+		s.printgrades();
+		s.getaveragegrade();
+		if(t.addcourse("c")==false)
+			System.out.println("Course already exist");
+		if(t.removecourse("cloud")==false)
+			System.out.println("Course doesnot exist");
+		
+		
+		
+		
+	}
+
+}
