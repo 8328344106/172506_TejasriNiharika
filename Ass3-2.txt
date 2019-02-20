@@ -1,0 +1,189 @@
+package movie.com;
+
+public class Movie_Details 
+{
+	String mov_Name;
+	String lead_actor;
+	String lead_actories;
+	String genre;
+	public Movie_Details(String mov_Name, String lead_actor, String lead_actories,String genre) 
+	{
+		super();
+		this.mov_Name = mov_Name;
+		this.lead_actor = lead_actor;
+		this.lead_actories = lead_actories;
+		this.genre=genre;
+		
+	}
+	public String getMov_Name() 
+	{
+		return mov_Name;
+	}
+	public void setMov_Name(String mov_Name) 
+	{
+		this.mov_Name = mov_Name;
+	}
+	public String getLead_actor() 
+	{
+		return lead_actor;
+	}
+	public void setLead_actor(String lead_actor) 
+	{
+		this.lead_actor = lead_actor;
+	}
+	public String getLead_actories() 
+	{
+		return lead_actories;
+	}
+	public void setLead_actories(String lead_actories) 
+	{
+		this.lead_actories = lead_actories;
+	}
+	public String getGenre() 
+	{
+		return genre;
+	}
+	public void setGenre(String genre) 
+	{
+		this.genre = genre;
+	}
+	@Override
+	public String toString() {
+		return "Movie_Details [mov_Name=" + mov_Name + ", lead_actor=" + lead_actor + ", lead_actories=" + lead_actories
+				+ ", genre=" + genre + "]";
+	}
+	
+	
+	
+	
+
+}
+package movie.com;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class MovieDetailsList 
+{
+	ArrayList<Movie_Details> movie;
+
+    public MovieDetailsList() 
+    {
+        this.movie = new ArrayList<>();
+    }
+    public void add_movie(Movie_Details MD)
+    {
+    	movie.add(MD);
+    }
+    public String remove_movie(String MName)
+    {
+    	for(Movie_Details MD:movie)
+    	{
+    		if(MD.getMov_Name().equals(MName))
+    		{
+    			movie.remove(MD);
+    			return ("Movie removed");
+    		}
+    	}
+    	return ("Movie Does not exist");
+    	
+    }
+    public void Display()
+    {
+    	for(Movie_Details MD:movie)
+    		System.out.println(MD);
+    }
+    public void remove_All()
+    {
+    	movie.removeAll(movie);
+    }
+    public String find_movie_By_mov_Name(String MName)
+    {
+    	for(Movie_Details MD:movie)
+    	{
+    		if(MD.getMov_Name().equals(MName))
+    			return ("Movie Name:"+MD.getMov_Name()+"Movie Actor: "+MD.getLead_actor()+"Movie Actories: "+MD.getLead_actories()+"Movie Genre"+MD.getGenre());
+    	}
+    	return ("Movie is not in list");
+    } 
+    public String find_movie_By_genre(String MName)
+    {
+    	for(Movie_Details MD:movie)
+    	{
+    		if(MD.getGenre().equals(MName))
+    			return ("Movie Name:"+MD.getMov_Name()+"Movie Actor: "+MD.getLead_actor()+"Movie Actories: "+MD.getLead_actories()+"Movie Genre"+MD.getGenre());
+    	}
+    	return ("Movie is not in list");
+    }
+    public ArrayList<Movie_Details> Sort(String Type)
+    {
+    	if(Type=="MovieName")
+    	{
+    		Collections.sort(movie,new Comparator<Movie_Details>() {
+    			@Override
+    			public int compare(Movie_Details o1,Movie_Details o2) {
+    				return o1.getMov_Name().compareTo(o2.getMov_Name());
+    			}
+    		});
+    	}
+    	else if(Type=="LeadActor")
+    	{
+    		Collections.sort(movie,new Comparator<Movie_Details>() {
+    			@Override
+    			public int compare(Movie_Details o1,Movie_Details o2) {
+    				return o1.getLead_actor().compareTo(o2.getLead_actor());
+    			}
+    		});
+    	}
+    	else if(Type=="LeadActories")
+    	{
+    		Collections.sort(movie,new Comparator<Movie_Details>() {
+    			@Override
+    			public int compare(Movie_Details o1,Movie_Details o2) {
+    				return o1.getLead_actories().compareTo(o2.getLead_actories());
+    			}
+    		});
+    	}
+    	else if(Type=="Gener")
+    	{
+    		Collections.sort(movie,new Comparator<Movie_Details>() {
+    			@Override
+    			public int compare(Movie_Details o1,Movie_Details o2) {
+    				return o1.getGenre().compareTo(o2.getGenre());
+    			}
+    		});
+    	}
+    	return movie;
+    	
+    }
+    
+}
+package movie.com;
+
+public class MovieMain {
+
+	public static void main(String[] args) 
+	{
+		MovieDetailsList MDL=new MovieDetailsList();
+		Movie_Details MD=new Movie_Details("BahuBalli","Prabhas","Anushka","Action");
+		Movie_Details MD1=new Movie_Details("BahuBalli2","Prabhas","Anushka","Action");
+		Movie_Details MD2=new Movie_Details("Varsham","Prabhas","Trisha","Love");
+		Movie_Details MD3=new Movie_Details("Bujjigadu","Prabhas","Trisha","Love");
+		MDL.add_movie(MD);
+		MDL.add_movie(MD1);
+		MDL.add_movie(MD2);
+		MDL.add_movie(MD3);
+		//MDL.Display();
+		//System.out.println(MDL.remove_movie("ghj"));
+		//MDL.Display();
+		/*for(Movie_Details dm:MDL.Sort("MovieName"))
+		{
+			System.out.println(dm);
+		}*/
+		//MDL.Display();
+		MDL.remove_All();
+		MDL.Display();
+	}
+
+}

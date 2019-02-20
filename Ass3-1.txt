@@ -1,0 +1,116 @@
+package account.com;
+ 
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class AccountMain 
+{
+
+	public static void main(String[] args) 
+	{
+		//SavingAccount SA=new SavingAccount();
+		BankAccountList BAL=new BankAccountList();
+		SavingAccount SA=new SavingAccount(1000000,1234567890,"Niharika","Yes");
+		SavingAccount SA1=new SavingAccount(100000,2087654321,"Teja","Yes");
+		SavingAccount SA2=new SavingAccount(2000000,2087654890,"Alekhya","Yes");
+		BAL.details(SA);
+		BAL.details(SA1);
+		BAL.details(SA2);
+		//SortedSet<SavingAccount> BankSortSet=new TreeSet<>();
+		for(SavingAccount sa:BAL.getallAccounts()) 
+		{
+			System.out.println(sa);
+		}
+		
+		//BAL.display();
+
+	}
+
+}
+package account.com;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class BankAccountList 
+{
+	SortedSet<SavingAccount> BankSortSet; 
+
+	public BankAccountList() 
+	{
+		this.BankSortSet=new TreeSet<>();
+	}
+	public void details(SavingAccount acc)
+	{
+		BankSortSet.add(acc);
+	}
+	
+	 
+	public SortedSet<SavingAccount> getallAccounts()
+	{
+		return BankSortSet;
+	}
+}
+ package account.com;
+
+public class SavingAccount implements Comparable<SavingAccount> 
+{
+	double acc_balance; 
+	int acc_ID; 
+	String accountHoldername;
+	String isSalaryAccount;
+	public SavingAccount(double acc_balance, int acc_ID, String accountHoldername, String isSalaryAccount) 
+	{
+		this.acc_balance = acc_balance;
+		this.acc_ID = acc_ID;
+		this.accountHoldername = accountHoldername;
+		this.isSalaryAccount = isSalaryAccount;
+	} 
+	
+	public double getAcc_balance() 
+	{
+		return acc_balance;
+	}
+	public void setAcc_balance(double acc_balance) 
+	{
+		this.acc_balance = acc_balance;
+	}
+	public int getAcc_ID() {
+		return acc_ID;
+	}
+	public void setAcc_ID(int acc_ID) 
+	{
+		this.acc_ID = acc_ID;
+	}
+	public String getAccountHoldername() 
+	{
+		return accountHoldername;
+	}
+	public void setAccountHoldername(String accountHoldername) 
+	{
+		this.accountHoldername = accountHoldername;
+	}
+	public String getIsSalaryAccount() 
+	{
+		return isSalaryAccount;
+	}
+	public void setIsSalaryAccount(String isSalaryAccount) 
+	{
+		this.isSalaryAccount = isSalaryAccount;
+	}
+	
+	@Override
+	public String toString() {
+		return "SavingAccount [acc_balance=" + acc_balance + ", acc_ID=" + acc_ID + ", accountHoldername="
+				+ accountHoldername + ", isSalaryAccount=" + isSalaryAccount + "]";
+	}
+
+
+	@Override
+	public int compareTo(SavingAccount ss)
+	{
+		// TODO Auto-generated method stub
+		return this.acc_ID-ss.getAcc_ID();
+	}
+	
+	
+}

@@ -1,0 +1,247 @@
+package DateFormat.com;
+
+public class DateFormat 
+{
+	public String StartDate;
+	public String EndDate;
+	public DateFormat() 
+	{
+		this.StartDate = StartDate;
+		this.EndDate = EndDate;
+	}
+	public String getStartate() 
+	{
+		return StartDate;
+	}
+	public String getEndDate() 
+	{
+		return EndDate;
+	}
+	
+	
+}
+package TestMain.com;
+
+
+import DateMonthYear.DateMonthYear;
+
+public class TestMain 
+{
+	 public static void main(String[] args)
+	 {
+		 DateMonthYear DMY=new DateMonthYear();
+		 /*Scanner s=new Scanner(System.in);
+		 System.out.println("enter start date:");
+		 DF.StartDate=s.nextLine();
+		 System.out.println("enter end date:");
+		 DF.EndDate=s.nextLine();*/
+		 System.out.println(DMY.Difference("6-4-2011","6-4-2011"));
+		 System.out.println(DMY.Difference("6-4-2011","18-4-2011"));
+		 System.out.println(DMY.Difference("6-4-2011","18-5-2011"));
+		 System.out.println(DMY.Difference("6-4-2011","18-6-2011"));
+		 System.out.println(DMY.Difference("6-4-2011","18-12-2011"));
+		 System.out.println(DMY.Difference("6-4-2011","18-12-2012"));
+		 System.out.println(DMY.Difference("6-4-2011","18-12-2013"));
+		 System.out.println(DMY.Difference("6-4-2011","18-12-2113"));
+		 System.out.println(DMY.Difference("6-4-2011","18-12-2413"));
+		 System.out.println(DMY.Difference("6-4-2011","18-12-2813"));
+		 System.out.println(DMY.Difference("6-1-2011","6-3-2011"));
+		 System.out.println(DMY.Difference("6-1-2012","6-3-2012"));
+		 System.out.println(DMY.Difference("6-2-2012","6-3-2012"));
+		 System.out.println(DMY.Difference("22-1-2012","15-11-2012"));
+		 System.out.println(DMY.Difference("6-2-2012","6-12-2012"));
+		 
+		 
+				 
+	 }
+}
+
+package DateMonthYear;
+
+import DateMethods.com.DateMethods;
+
+public class DateMonthYear 
+{
+	static int StartDay;
+	static int StartMonth;
+	static int StartYear;
+	static int EndDay;
+	static int EndMonth;
+	static int EndYear;
+	int D,M,Y,D2,M2,Y2;
+	public int Difference(String StartDate,String EndDate)
+	{
+		DateMethods DM=new DateMethods();
+		D=StartDate.indexOf("-");
+		M=StartDate.indexOf("-",D+1);
+		Y=StartDate.indexOf("-",M+1);
+		this.StartDay = Integer.parseInt(StartDate.substring(0,D));
+		this.StartMonth = Integer.parseInt(StartDate.substring(D+1,M));
+		this.StartYear = Integer.parseInt(StartDate.substring(M+1,M+5));
+		D2=EndDate.indexOf("-");
+		M2=EndDate.indexOf("-",D2+1);
+		Y2=EndDate.indexOf("-",M2+1);
+		this.EndDay = Integer.parseInt(EndDate.substring(0,D2));
+		this.EndMonth = Integer.parseInt(EndDate.substring(D2+1,M2));
+		this.EndYear = Integer.parseInt(EndDate.substring(M2+1,M2+5));
+		int d=DM.DifferenceOfDates(StartDay,StartMonth,StartYear,EndDay,EndMonth,EndYear);
+		return d;
+	}
+	public static int getStartDay() 
+	{
+		return StartDay;
+	}
+	public static int getStartMonth() 
+	{
+		return StartMonth;
+	}
+	public static int getStartYear() 
+	{
+		return StartYear;
+	}
+	public static int getEndDay() 
+	{
+		return EndDay;
+	}
+	public static int getEndMonth() 
+	{
+		return EndMonth;
+	}
+	public static int getEndYear() 
+	{
+		return EndYear;
+	}	
+}
+
+package DateMethods.com;
+
+public class DateMethods 
+{
+	public static int Jan=31;
+	public static int Feb=28;
+	public static int Mar=31;
+	public static int Apr=30;
+	public static int May=31;
+	public static int Jun=30;
+	public static int Jul=31;
+	public static int Aug=31;
+	public static int Sep=30;
+	public static int Oct=31;
+	public static int Nov=30;
+	public static int Dec=31;
+	static int d=0;
+	private static final int[] DateInMonths = {Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec};
+	public int DifferenceOfDates(int SD, int SM, int SY, int ED, int EM, int EY) 
+	{
+		
+		if(SD==ED && SM==EM && SY==EY)
+			return 0;
+		else if(SD==ED && SM==EM)
+			return (DaysAndMonth(SY,EY));
+		else if(SM==EM && SY==EY)
+			return (MonthAndYear(SD,ED));
+		else if(SY==EY)
+			return (Year(SD,ED,SM,EM,SY,EY));
+		else
+			return DateDifference(SD,SM,SY,ED,EM,EY);
+	}
+	private int Year(int sD, int eD, int sM, int eM,int sY,int eY) 
+	{
+		int d=0;
+		if(leapyear(sY)==true&&sM==2)
+			d=d+(DateInMonths[sM-1]-sD)+1;
+		else
+			d=d+(DateInMonths[sM-1]-sD);
+		for(int i=sM;i<=eM-2;i++)
+		{
+			if(leapyear(sY)==true&&i==1)
+				d=d+1;
+			d=d+DateInMonths[i];
+		}
+		d=d+eD;
+		
+		
+		return d;
+	}
+	private static int DateDifference(int sD, int sM, int sY, int eD, int eM, int eY) 
+	{
+				
+		int d=0;
+		for(int i=sY+1;i<=eY-1;i++)
+		{
+			d=d+SearchYear(i);
+		}
+				 
+		//System.out.println(d);
+		if(leapyear(sY)==true&&sM==2)
+			d=d+(DateInMonths[sM-1]-sD)+1;
+		else
+			d=d+(DateInMonths[sM-1]-sD);
+		//System.out.println(d);
+		for(int i=sM;i<12;i++)
+		{
+			if(leapyear(sY)==true&&i==1)
+				d=d+1;
+			d=d+DateInMonths[i];
+		}
+		//System.out.println(d);
+		d=d+eD;
+		//System.out.println(d);
+		for(int i=eM-2;i>=0;i--)
+		{
+			if(leapyear(eY)==true&&i==1)
+				d=d+1;
+			d=d+DateInMonths[i];
+		}
+		return d;
+	}
+
+	private static int MonthAndYear(int sD, int eD) 
+	{
+		if(sD>eD)
+			return sD-eD;
+		return eD-sD;
+	}
+
+	private static int DaysAndMonth(int sY, int eY) 
+	{
+		int d=0;
+		if(leapyear(sY))
+		{
+			for(int i=sY;i<=eY-1;i++)
+			{
+				d=d+SearchYear(i);
+			}
+				  
+		}
+		else
+		{
+			for(int i=sY+1;i<=eY;i++)
+			{
+				d=d+SearchYear(i);
+			}
+		}
+		return d;
+	}
+	public static int SearchYear(int i)
+	{
+
+		if((i%400) ==0 || i%4==0 && i%100!=0)
+		{
+		    return 366;
+		}
+		else 
+		{   
+		    return 365;
+		}
+	}
+	
+
+	private static boolean leapyear(int sY) 
+	{
+		if((sY%400) ==0 || sY%4==0 && sY%100!=0)
+			return true;
+		return false;
+	}	
+}
+
