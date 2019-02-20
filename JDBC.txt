@@ -1,0 +1,159 @@
+package com.capgemini.dao.pojo;
+
+import java.sql.Date;
+
+public class Employee {
+ private int empNo;
+ private String ename;
+ private String job;
+ private int mgr;
+ private Date hiredate;
+ private double sal;
+ private double comm;
+ private int deptNo;
+ public Employee(int empNo, String ename, String job, int mgr, Date hiredate, double sal, double comm, int deptNo) {
+  super();
+  this.empNo = empNo;
+  this.ename = ename;
+  this.job = job;
+  this.mgr = mgr;
+  this.hiredate = hiredate;
+  this.sal = sal;
+  this.comm = comm;
+  this.deptNo = deptNo;
+ }
+ public Employee() {
+  super();
+ }
+ public int getEmpNo() {
+  return empNo;
+ }
+ public void setEmpNo(int empNo) {
+  this.empNo = empNo;
+ }
+ public String getEname() {
+  return ename;
+ }
+ public void setEname(String ename) {
+  this.ename = ename;
+ }
+ public String getJob() {
+  return job;
+ }
+ public void setJob(String job) {
+  this.job = job;
+ }
+ public int getMgr() {
+  return mgr;
+ }
+ public void setMgr(int mgr) {
+  this.mgr = mgr;
+ }
+ public Date getHiredate() {
+  return hiredate;
+ }
+ public void setHiredate(Date hiredate) {
+  this.hiredate = hiredate;
+ }
+ public double getSal() {
+  return sal;
+ }
+ public void setSal(double sal) {
+  this.sal = sal;
+ }
+ public double getComm() {
+  return comm;
+ }
+ public void setComm(double comm) {
+  this.comm = comm;
+ }
+ public int getDeptNo() {
+  return deptNo;
+ }
+ public void setDeptNo(int deptNo) {
+  this.deptNo = deptNo;
+ }
+ @Override
+ public String toString() {
+  return "Employee [empNo=" + empNo + ", ename=" + ename + ", job=" + job + ", mgr=" + mgr + ", hiredate="
+    + hiredate + ", sal=" + sal + ", comm=" + comm + ", deptNo=" + deptNo + "]";
+ }
+ 
+ 
+ 
+
+}
+package com.capgemini.dao.support;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionFactory {
+ private static Connection conn;
+ public static Connection getConnection()
+ {
+  try {
+   Class.forName("oracle.jdbc.driver.OracleDriver");
+   conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "orcl11g");
+  } catch (ClassNotFoundException | SQLException e) {
+   // TODO Auto-generated catch block
+   e.printStackTrace();
+  }
+  return conn;
+  
+ }
+
+}
+package com.capgemini.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.capgemini.dao.pojo.Employee;
+import com.capgemini.dao.support.ConnectionFactory;
+
+public class EmployeeDAO {
+ public int insert(Employee emp ) throws SQLException
+ {
+ Connection conn = ConnectionFactory.getConnection(); 
+ String query = "insert into emp values(?,?,?,?,?,?,?,?)";
+ PreparedStatement pStatement=  conn.prepareStatement(query);
+ pStatement.setInt(1, emp.getEmpNo());
+ pStatement.setString(2, emp.getEname());
+ pStatement.setString(3, emp.getJob());
+ pStatement.setInt(4, emp.getMgr());
+ pStatement.setDate(5, emp.getHiredate());
+ pStatement.setDouble(6, emp.getSal());
+ pStatement.setDouble(7, emp.getComm());
+ pStatement.setInt(8, emp.getDeptNo());
+ int output=pStatement.executeUpdate();
+ return output;
+ }
+ public Employee read(int empNo) throws SQLException 
+ {
+  Connection conn = ConnectionFactory.getConnection();
+  String query="select * from emp where empNo= ?";
+  PreparedStatement pStatement=  conn.prepareStatement(query);
+  pStatement.setInt(1, empNo);
+  ResultSet resultSet=pStatement.executeQuery();
+  Employee emp = null;
+  while(resultSet.next()) {
+   emp=new Employee();
+   emp.setEname(resultSet.getString("ename"));
+ 
+  }
+  return emp;
+ }
+ public static void main(String[] args) {
+  try {
+   //System.out.println(new EmployeeDAO().insert(new Employee(1000, "Sachin", "Manager", 7369, new java.sql.Date(Calendar.getInstance().getTime().getTime()), 5000.00, 500.00, 20)));
+   System.out.println(new EmployeeDAO().read(7369));
+  } catch (SQLException e) {
+   // TODO Auto-generated catch block
+   e.printStackTrace();
+  }
+ }
+
+}
