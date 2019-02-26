@@ -32,7 +32,8 @@ public class DemoServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
-		out.println("hello world");
+		String i=request.getParameter("star");
+		out.println("hello world"+i);
 	}
 
 	/**
