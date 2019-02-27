@@ -48,6 +48,7 @@ label.star:before {
   font-family: FontAwesome;
 } 
 
+
 </style>
 <body>
 
@@ -60,42 +61,48 @@ label.star:before {
 <div class="row">
     <div class="col-sm-6">
     <br>
+     
       <iframe width="500" height="400" src="https://www.youtube.com/embed/sOEg_YZQsTI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div> 
   <div class="col-sm-6">
   <br>
   	<p class="text-center"><strong><h3>Details</h3></strong><br>The Beginning is a 2015 Indian epic action film directed by S. S. Rajamouli. The film was produced by Shobu Yarlagadda and Prasad Devineni and was shot in both Telugu and Tamil. This film was also dubbed into Malayalam and Hindi. The film stars Prabhas, Rana Daggubati, Anushka Shetty, and Tamannaah in the lead roles, with Ramya Krishnan, Sathyaraj, and Nassar in supporting roles. </p>
-  	<div class="stars">
+  	
+  	<form method="get" action="login.jsp">
+	  	<div class="stars">
+		    <input class="star star-5" id="star-5" value="5" type="radio" name="star" />
+		
+		    <label class="star star-5" for="star-5"></label>
+		
+		    <input class="star star-4" id="star-4" value="4" type="radio" name="star" />
+		
+		    <label class="star star-4" for="star-4"></label>
+		
+		    <input class="star star-3" id="star-3" value="3" type="radio" name="star" />
+		
+		    <label class="star star-3" for="star-3"></label>
+		
+		    <input class="star star-2" id="star-2" value="2" type="radio" name="star" />
+		
+		    <label class="star star-2" for="star-2"></label>
+		
+		    <input class="star star-1" id="star-1" value="1" type="radio" name="star" />
+		
+		    <label class="star star-1" for="star-1"></label>
+	    </div>
+	    <div>
+	    	Comments:<input name="comments" id="comments" />
+	    </div>
+	    <input type="submit"  value="Submit"/>
+  </form> 
+	
 
-  <form method=get action="DemoServlet">
-
-    <input class="star star-5" id="star-5" value=5 type="radio" name="star"/>
-
-    <label class="star star-5" for="star-5"></label>
-
-    <input class="star star-4" id="star-4" value=4 type="radio" name="star"/>
-
-    <label class="star star-4" for="star-4"></label>
-
-    <input class="star star-3" id="star-3" value=3 type="radio" name="star"/>
-
-    <label class="star star-3" for="star-3"></label>
-
-    <input class="star star-2" id="star-2" value=2 type="radio" name="star"/>
-
-    <label class="star star-2" for="star-2"></label>
-
-    <input class="star star-1" id="star-1" value=1 type="radio" name="star"/>
-
-    <label class="star star-1" for="star-1"></label>
-	<button type="button">Submit</button>
-  </form>
-
-</div>
   	
   </div>
   </div>  
   </div>
+
+
 </body>
 </html>
 

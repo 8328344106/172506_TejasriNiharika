@@ -6,11 +6,6 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -131,36 +126,37 @@ span.psw {
   .cancelbtn {
      width: 100%;
   }
-}
-</style>
-</head>
+  </style>
 <body>
+<form method="post" action="DemoServlet">
+<div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+    <label for="firstname"><b>FirstName</b></label>
+    <input type="text" placeholder="Enter firstname" name="firstname" required>
+	<br>
+    <label for="lastname"><b>LastName</b></label>
+    <input type="text" placeholder="Enter Lastname" name="lastname" required>
+    <br>
+    <label for="phonenumber"><b>PhoneNumber</b></label>
+    <input type="text" placeholder="Enter PhoneNumber" name="phonenumber" required>
+    <br>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="emailid" required>
+	<br>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+	<br>
+    <label for="reenterpassword"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="reenterpassword" required>
+    <hr>
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-<h2>FlipKart Login Form</h2>
-
-
-
-<form method="post" action="">
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    
- </form>
-
-<button onclick="document.getElementById('id01').style.display='block'" style="width:10;">OR</button>
-<br>
-<a href="registration.jsp"><button>NewUser Registration</button>
-
-</script>
-
-</body>
-</html>
+    <button type="submit" class="registerbtn">Register</button>
+     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+  </div>
+  
+</form>
 </body>
 </html>
