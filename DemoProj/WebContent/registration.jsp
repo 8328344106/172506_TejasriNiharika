@@ -34,33 +34,8 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Extra styles for the cancel button */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
 
-/* Center the image and position the close button */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-}
 
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
 
 /* The Modal (background) */
 .modal {
@@ -85,47 +60,8 @@ span.psw {
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
-}
 
-.close:hover,
-.close:focus {
-  color: pink;
-  cursor: pointer;
-}
 
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
   </style>
 <body>
 <form method="post" action="DemoServlet">
@@ -133,28 +69,19 @@ span.psw {
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-    <label for="firstname"><b>FirstName</b></label>
-    <input type="text" placeholder="Enter firstname" name="firstname" required>
-	<br>
-    <label for="lastname"><b>LastName</b></label>
-    <input type="text" placeholder="Enter Lastname" name="lastname" required>
-    <br>
-    <label for="phonenumber"><b>PhoneNumber</b></label>
-    <input type="text" placeholder="Enter PhoneNumber" name="phonenumber" required>
-    <br>
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="emailid" required>
+    <label for="username"><b>userName</b></label>
+    <input type="text" placeholder="Enter username" name="username" required>
+
 	<br>
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
 	<br>
     <label for="reenterpassword"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="reenterpassword" required>
-    <hr>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+   
 
     <button type="submit" class="registerbtn">Register</button>
-     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+ 
   </div>
   
 </form>

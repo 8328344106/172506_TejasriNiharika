@@ -49,17 +49,14 @@ public class DemoServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		response.setContentType("text/html");
-		String firstname=request.getParameter("firstname");
-		String lastname=request.getParameter("lastname");
-		String phonenumber=request.getParameter("phonenumber");
-		String emailid=request.getParameter("emailid");
+		String username=request.getParameter("username");
 		String password=request.getParameter("password");
 		String reenterpassword=request.getParameter("reenterpassword");
 //		PrintWriter out=response.getWriter();
-		System.out.println("hi"+firstname+lastname+phonenumber+emailid+password+reenterpassword);
+		//System.out.println("hi"+firstname+lastname+phonenumber+emailid+password+reenterpassword);
 		RegistrationDAO obj=new RegistrationDAO();
 	
-		IMDBRegisterPojo IRP=new IMDBRegisterPojo(firstname,lastname,phonenumber,emailid,password,reenterpassword);
+		IMDBRegisterPojo IRP=new IMDBRegisterPojo(username,password,reenterpassword);
 		try {
 			obj.insert(IRP);
 		} catch (SQLException e) {

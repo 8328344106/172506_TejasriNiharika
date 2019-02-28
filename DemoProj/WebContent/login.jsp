@@ -136,27 +136,35 @@ span.psw {
 </head>
 <body>
 
-<h2>FlipKart Login Form</h2>
+<h2>Login Form</h2>
+
+<button onclick="document.getElementById('id01').style.display='block'">Login</button>
+<br>
+<button>OR</button>
+<br>
+
+<a href="registration.jsp"><button>NewUser Registration</button></a></button>
 
 
 
-<form method="post" action="">
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" method="post" action="LoginServlet">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username">
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password">
         
       <button type="submit">Login</button>
       
       <span class="psw">Forgot <a href="#">password?</a></span>
     
  </form>
-
-<button onclick="document.getElementById('id01').style.display='block'" style="width:10;">OR</button>
-<br>
-<a href="registration.jsp"><button>NewUser Registration</button>
 
 </script>
 

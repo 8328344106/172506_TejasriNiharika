@@ -98,7 +98,7 @@ button:hover {
 
       
  <div class="item active">
-        <img src="C:\Users\tchundur\Desktop\images\bahubali-1.jpg" alt="New York" width="1250" height="250">
+        <img src="96m.jpg" alt="New York" width="1250" height="250">
  </div>
  <br>
  <div class="container">
@@ -106,7 +106,7 @@ button:hover {
     <div class="col-sm-6">
     <br>
      
-      <iframe width="500" height="400" src="https://www.youtube.com/embed/sOEg_YZQsTI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="500" height="400" src="https://www.youtube.com/embed/r0synl-lI4I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div> 
   <div class="col-sm-6">
   <br>
