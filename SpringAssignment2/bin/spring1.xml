@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+<bean id="question" class="com.Question.Question">
+<property name="questionId" value="1"/>
+<property name="question" value="who are you"/>
+<property name="answer" value="niharika"/>
+</bean>
+<bean id="question1" class="com.Question.Question">
+<property name="questionId" value="2"/>
+<property name="question" value="how are you"/>
+<property name="answer" value="fine"/>
+</bean>
+<bean id="demo" class="com.ListDemo.ListDemo">
+<property name="answers">
+<set>
+<ref bean="question"></ref>
+<ref bean="question1"></ref>
+</set> 
+</property>
+</bean>
+</beans>
