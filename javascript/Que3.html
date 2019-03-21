@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript </h2>
+
+<p id="demo"></p>
+<script>
+    var mul=1;
+    var i;
+    document.getElementById("demo").innerHTML = factorial(7);
+    function factorial(n)
+    {
+        if(n<=0)
+            return 0;
+        else
+        {
+            for(i=1;i<=n;i++)
+            {
+              mul=mul*i;  
+            }
+            return mul;
+        }
+    }
+    
+</script>
+</body>
+</html>
