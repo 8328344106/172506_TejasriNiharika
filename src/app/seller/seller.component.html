@@ -1,0 +1,72 @@
+<br>
+<br>
+
+<div *ngIf="check">
+    <div class="form-group">
+        <button class="btn btn-primary"    routerLinkActive='active' [routerLink]="['/login']" type="submit">Login</button>
+    </div>
+</div>
+
+
+
+<div *ngIf="!check">
+  <div class="form">
+    <div class="form-toggle"></div>
+        <div class="form-panel one">
+          
+          <div class="form-content">
+            <form  [formGroup]="regForm" novalidate (ngSubmit)="onSeller()">
+              
+                
+              <div class="form-group">
+                  <label>ImageUrl:</label>
+                <input type="text" class="form-control" placeholder="imageUrl" formControlName="imageUrl" id="imageUrl" [(ngModel)]="seller.imageUrl" required/>
+              
+              </div>
+              <div *ngIf="regForm.controls['imageUrl'].invalid && (regForm.controls['imageUrl'].dirty || regForm.controls['imageUrl'].touched)" class="alert alert-danger">
+                  <div *ngIf="regForm.controls['imageUrl'].errors.required">
+                      imageUrl  is required.
+                  </div>
+            </div>
+
+            <div class="form-group">
+                <label>Service Type:</label>
+                <select class="form-control" formControlName="service" id="service" [(ngModel)]="seller.service" required>
+                    <option value="free">Free</option>
+                    <option value="money">Money</option>
+                </select>
+            </div>
+            <div *ngIf="regForm.controls['service'].invalid && (regForm.controls['service'].dirty || regForm.controls['service'].touched)" class="alert alert-danger">
+                <div *ngIf="regForm.controls['service'].errors.required">
+                        service type  is required.
+                </div>
+            </div>
+
+            <div  class="form-group" *ngIf="seller.service === 'money' ">
+            
+           
+                <label>Price:</label>
+              <input type="text" class="form-control" placeholder="price" formControlName="price" id="price" [(ngModel)]="seller.price" required/>
+              <div *ngIf="regForm.controls['price'].invalid && (regForm.controls['price'].dirty || regForm.controls['price'].touched)" class="alert alert-danger">
+                  <div *ngIf="regForm.controls['price'].errors.required">
+                      price   is required.
+                  </div>
+              </div>
+            
+            </div>
+
+            <div class="form-group"  *ngIf="seller.service === 'free' ">
+                <button class="btn btn-primary"  type="submit">AddItems</button>
+            </div>
+
+            <div class="form-group"  *ngIf="seller.service === 'money'">
+                <button class="btn btn-primary"  [disabled]="regForm.pristine || regForm.invalid" type="submit">AddItems</button>
+            </div>
+            
+           
+          </form>
+       
+          </div>
+      </div> 
+</div>
+      
