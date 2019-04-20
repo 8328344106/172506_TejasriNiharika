@@ -1,0 +1,16 @@
+.alert-danger
+{
+color: #b94a48;
+width: 450px;
+height: 40px;
+background-color: #f2dede;
+border-color: #eed3d7;
+}
+img{
+    height: 250px;;
+    width: 425px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 20px;
+    
+}

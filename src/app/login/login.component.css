@@ -244,3 +244,11 @@ body {
 	background: #fff !important;
 	color: #4285f4 !important;
 }
+.alert-danger
+{
+color: #b94a48;
+width: 450px;
+height: 40px;
+background-color: #f2dede;
+border-color: #eed3d7;
+}

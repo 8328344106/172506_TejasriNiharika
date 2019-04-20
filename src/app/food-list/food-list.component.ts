@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from '../login.service';
-import { bypassSanitizationTrustHtml } from '@angular/core/src/sanitization/sanitization';
+
 import { Register } from '../register';
 import { Observable } from 'rxjs';
 import { Seller } from '../seller';

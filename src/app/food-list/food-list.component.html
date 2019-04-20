@@ -1,16 +1,18 @@
 
-<div  class="row" >
-    <div class = "column">
-        <div  *ngFor="let seller of seller " >
+<div class="row">
+
+  
+        <div  *ngFor="let seller of seller"  class="center" >
             
-             <img src="{{seller.imageUrl}}"  style="width:25% ">
-             <div>
-                 <label>Price:</label>{{seller.price}}
-             </div>
+            <img class="card-img-top" src="{{seller.imageUrl}}"  alt="Card image cap">
+            <div class="card-body">           
+            <label>Price:</label>{{seller.price}}
+        
              <button type="submit" routerLinkActive='active' [routerLink]="['/confirm']" >Order</button>
             
+            </div>
         </div>
-    </div>
+   
 </div>
 
 

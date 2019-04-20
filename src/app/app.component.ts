@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Employee } from './employee';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +9,5 @@ import { Employee } from './employee';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // islogin=false;
-  // username:Employee;
-  // logineventfired(eventArgs)
-  // {
-  //   console.log("on login event fired",eventArgs);
-  //   this.islogin=true;
-  //   this.username=eventArgs;
-
-  // }
+  title = 'pro';
 }

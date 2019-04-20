@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.authservice.checkingstatus().
     subscribe(val=>this.islogin=val);
+    
     this.regForm = this.fb.group({
       username: ['', [Validators.required ]],
       password:['',[ Validators.required] ],
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
             (console.log(data),error=>console.error(error));
             if(data==true){
               this.check=true;
+              localStorage.setItem('islogins',"true");
               this.loginstatus();
               this.route.navigateByUrl('home');
               

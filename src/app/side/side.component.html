@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav" opened="false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <div *ngIf = "readvalue(islogins)=='false'">
+      <a mat-list-item routerLinkActive='active' [routerLink]="['/login']">Login</a>
+      </div>  
+    <div *ngIf="readvalue(islogins)=='true'">
+        <a mat-list-item href=# (click)="logout()">LogOut</a>
+      </div>
+    
+      <a mat-list-item routerLinkActive='active' [routerLink]="['/food']">Available food</a>
+      <a mat-list-item routerLinkActive='active' [routerLink]="['/seller']">Seller</a>
+      <a mat-list-item routerLinkActive='active' [routerLink]="['/track']">My Orders</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar color="primary">
+        <mat-icon svgIcon="menu" (click)="sidenav.toggle()"></mat-icon>
+        <span>  Waste Food</span>
+      </mat-toolbar>
+      <span>Home</span>
+      <span> </span>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon svgIcon="person" ></mat-icon> 
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon svgIcon="person"></mat-icon>
+            <span>Redial</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voicemail</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>
+        </mat-menu>
+       
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

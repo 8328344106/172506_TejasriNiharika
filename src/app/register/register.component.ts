@@ -11,7 +11,7 @@ import { Register } from '../register';
 })
 export class RegisterComponent implements OnInit {
   regForm: FormGroup;
-  @Input() name="harika";
+
   submitted= false;
   register:Register=new Register();
   constructor(private fb: FormBuilder,private log:LoginService,private route:Router) { }

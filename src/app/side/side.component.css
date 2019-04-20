@@ -1,0 +1,25 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.alert-danger
+{
+color: #b94a48;
+width: 450px;
+height: 40px;
+background-color: #f2dede;
+border-color: #eed3d7;
+}
