@@ -1,5 +1,6 @@
 package io.project.SellerCredentials.Seller;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -10,6 +11,14 @@ public class Seller {
 	String imageUrl;
 	String price;
 	String service;
+	String description;
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getService() {
 		return service;
 	}
@@ -40,14 +49,16 @@ public class Seller {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public Seller(String username, String password, String imageUrl, String price, String service) {
+	public Seller(String username, String password, String imageUrl, String price, String service, String description) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.imageUrl = imageUrl;
 		this.price = price;
 		this.service = service;
+		this.description = description;
 	}
+	
 	
 	
 }

@@ -68,9 +68,12 @@ public class UserController
 		else
 			return null;
 	}
-	@DeleteMapping("/register")
-	public void deleteEmployee(@PathVariable Userpojo id) {
-		repository.delete(id);
+	@DeleteMapping("/register/{id}")
+	public boolean deleteuser(@PathVariable("id") String id) {
+				
+			 repository.deleteById(id);
+			 return true;
+		
 	}
 	@DeleteMapping("/register/delete")
 	public void deleteAll() {

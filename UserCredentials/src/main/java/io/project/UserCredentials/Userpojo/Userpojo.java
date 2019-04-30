@@ -7,22 +7,42 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Userpojo 
 {
 	@Id
+	String id;
 	String username;
 	String email;
 	String mobilenumber;
 	String password;
 	String repeatpassword;
+	String answer;
+
 	
-	public Userpojo(String username, String email, String mobilenumber, String password, String repeatpassword) {
+	public Userpojo(String id, String username, String email, String mobilenumber, String password,
+			String repeatpassword, String answer) {
 		super();
+		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.mobilenumber = mobilenumber;
 		this.password = password;
 		this.repeatpassword = repeatpassword;
-		
+		this.answer = answer;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
 	public String getUsername() {
 		return username;
 	}
