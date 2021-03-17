@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      port: 27017
+      database: shopping
+server:
+    port: 9192
